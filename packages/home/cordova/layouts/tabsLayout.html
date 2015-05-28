@@ -1,0 +1,23 @@
+<template name="tabsLayout">
+  {{#ionBody}}
+    {{> ionNavBar}}
+
+    {{#ionNavView}}
+      {{> yield}}
+    {{/ionNavView}}
+
+    {{#if isAndroid}}
+      {{#ionTabs style="android"}}
+        {{#each getTabs}}
+          {{> ionTab path=path title=title icon=icon }}
+        {{/each}}
+      {{/ionTabs}}
+    {{else}}
+      {{#ionTabs style="ios"}}
+        {{#each getTabs}}
+          {{> ionTab path=path title=title iconOn=iconOn iconOff=iconOff }}
+        {{/each}}
+      {{/ionTabs}}
+    {{/if}}
+  {{/ionBody}}
+</template>
